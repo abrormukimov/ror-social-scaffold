@@ -55,7 +55,7 @@ RSpec.describe User, type: :model do
     it 'cand have pending friendships' do
       user.send_friend_request(user2)
       pending_request = user.pending_friends
-      
+
       expect(pending_request.empty?).to be false
     end
 

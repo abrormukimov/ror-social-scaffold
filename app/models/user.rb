@@ -12,10 +12,10 @@ class User < ApplicationRecord
   has_many :friendships
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: :friend_id
 
-  has_many :pending_friendships, -> { where(status: -1)}, class_name: 'Friendship', foreign_key: :user_id
+  has_many :pending_friendships, -> { where(status: -1) }, class_name: 'Friendship', foreign_key: :user_id
   has_many :pending_friends, through: :pending_friendships, source: :friend
 
-  has_many :incoming_friendships, -> { where(status: -1)}, class_name: 'Friendship', foreign_key: :friend_id
+  has_many :incoming_friendships, -> { where(status: -1) }, class_name: 'Friendship', foreign_key: :friend_id
   has_many :friend_requests, through: :incoming_friendships, source: :user
 
   def friends
@@ -42,7 +42,7 @@ class User < ApplicationRecord
   end
 
   def send_friend_request(friend)
-    new_friend_request = self.friendships.new(friend_id: friend.id, status: -1)
+    new_friend_request = friendships.new(friend_id: friend.id, status: -1)
     new_friend_request.save
   end
 end
