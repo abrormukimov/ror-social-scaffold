@@ -26,7 +26,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'should have a name less than 20 characters' do
-      user3 = User.create(name: 'a * 21')
+      user3 = User.create(name: 'a' * 21)
 
       expect(user).to be_valid
       expect(user3).to_not be_valid
