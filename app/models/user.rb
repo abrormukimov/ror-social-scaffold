@@ -41,8 +41,8 @@ class User < ApplicationRecord
     friend_request.save
   end
 
-  def send_friend_request(friend)
-    new_friend_request = friendships.new(friend_id: friend.id, status: -1)
+  def send_friend_request(user, friend)
+    new_friend_request = user.friendships.new(friend_id: friend.id, status: -1)
     new_friend_request.save
   end
 end

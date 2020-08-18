@@ -47,20 +47,20 @@ RSpec.describe User, type: :model do
     end
 
     it 'can send friend request to other users' do
-      user.send_friend_request(user2)
+      user.send_friend_request(user, user2)
       friend_request = user2.friend_requests
       expect(friend_request.empty?).to be false
     end
 
     it 'cand have pending friendships' do
-      user.send_friend_request(user2)
+      user.send_friend_request(user, user2)
       pending_request = user.pending_friends
 
       expect(pending_request.empty?).to be false
     end
 
     it 'can confirm friend requests' do
-      user.send_friend_request(user2)
+      user.send_friend_request(user, user2)
       user2.confirm_friendship(user)
       friendship = user2.friends
 
@@ -68,7 +68,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'can reject friend requests' do
-      user.send_friend_request(user2)
+      user.send_friend_request(user, user2)
       user2.reject_friend_request(user)
       friendship = user2.friends
 
@@ -76,7 +76,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'should return true if users are friends' do
-      user.send_friend_request(user2)
+      user.send_friend_request(user, user2)
       user2.confirm_friendship(user)
       friends = user.friend?(user2)
 
