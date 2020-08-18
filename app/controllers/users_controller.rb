@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     flash[:notice] = 'You have sent a friend request successfully!'
     redirect_to user_path(current_user)
   end
-  
+
   def ignore_friend_request
     @requst_sender = User.find(params[:friend_id])
     @ignore_friendship = current_user.reject_friend_request(@requst_sender)
