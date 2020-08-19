@@ -17,8 +17,10 @@ module ApplicationHelper
   end
 
   def link_to_friend_request(user)
-    if !current_user.friends.include?(user) && !user.friend_requests.include?(current_user) && current_user != user && !current_user.friend_requests.include?(user)
-      link_to 'Send Friend Request', user_send_request_path({ user_id: current_user.id, friend_id: user.id }), class: 'link-btn'
+    if !current_user.friends.include?(user) && !user.friend_requests.include?(current_user) &&
+       current_user != user && !current_user.friend_requests.include?(user)
+      link_to 'Send Friend Request', user_send_request_path({ user_id: current_user.id,
+                                                              friend_id: user.id }), class: 'link-btn'
     end
   end
 
