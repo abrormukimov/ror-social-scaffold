@@ -9,7 +9,7 @@
 
 ## Live Demo
 
-Go to this link([https://murmuring-mesa-91894.herokuapp.com])
+[Go to this link](https://murmuring-mesa-91894.herokuapp.com)
 
 
 ## Getting Started
